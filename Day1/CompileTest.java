@@ -16,7 +16,7 @@ public class CompileTest {
     
 }
 
-protected class Base{ 
+class Base{ 
     //Class should not contain protected modifier its either public or default
 	String method() {
 		return "wow";
