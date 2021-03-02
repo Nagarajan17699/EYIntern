@@ -2,14 +2,14 @@ package Day11_Lab;
 import java.util.Scanner;
 public class ExceptionHandlingDogChild {
 	public static void main(String[] args) throws Exception{
-		Dog tiger=new Dog();
-		Child baby=new Child();
+		Dog d1=new Dog();
+		Child b1=new Child();
 		Scanner scan=new Scanner(System.in);
-		System.out.println("Enter the item class...:");
+		System.out.println("Enter the item Class Name...:");
 		String itemClass=scan.next();
 		Item item=(Item)Class.forName(itemClass).getConstructor().newInstance();
 		
-		baby.playWithDog(tiger,item);
+		b1.playWithDog(d1,item);
 	}
 }
 abstract class Item{
