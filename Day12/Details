@@ -1,0 +1,4 @@
+Day: 12
+Topic: MultiThreading
+
+Two Ways to create threads => 1.) Runnable Interface   2.) Executor Class
