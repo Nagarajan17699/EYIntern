@@ -1,0 +1,7 @@
+<!ELEMENT books (book+)>
+<!ELEMENT book (id,name,author+,prize?,imported?)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT prize (#PCDATA)>
+<!ELEMENT imported EMPTY>
