@@ -1,0 +1,10 @@
+<!DOCTYPE books SYSTEM "customer.dtd">
+<customers>
+    <customer>
+        <name>Nagarajan S</name>
+        <email>lasdnvion@sdfv.sdp</email>
+        <phone>24534534654</phone>
+        <amount>2334</amount>
+        <date>23/3/21</date>
+    </customer>
+</customers>
