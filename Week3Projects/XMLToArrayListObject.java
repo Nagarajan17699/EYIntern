@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Day15;
+package Week3Projects;
 
 /**
  *
@@ -25,21 +25,18 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class XMLToArrayListObject {
 
     String filename;
-    XMLToArrayListObject(String filename)
-    {
+
+    XMLToArrayListObject(String filename) {
         this.filename = filename;
     }
-    
-    public ArrayList<CustomerDetails> readXMl() throws Exception
-    {
+
+    public ArrayList<CustomerDetails> readXMl() throws Exception {
         XMLParsing xp = new XMLParsing(filename);
         return xp.readXML();
-         
+
     }
-    
+
 }
-
-
 
 interface readXML {
 
@@ -47,8 +44,6 @@ interface readXML {
 
     public ArrayList<CustomerDetails> readXML() throws Exception;
 }
-
-
 
 class XMLParsing implements readXML {
 
@@ -58,9 +53,10 @@ class XMLParsing implements readXML {
         this.filename = filename;
     }
 
-     public void setFilename(String filename) {
+    public void setFilename(String filename) {
         this.filename = filename;
     }
+
     @Override
     public ArrayList<CustomerDetails> readXML() throws Exception {
         ArrayList<CustomerDetails> al = new ArrayList<>();
@@ -75,12 +71,30 @@ class XMLParsing implements readXML {
             Node node = nl.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element elem = (Element) node;
+                NodeList innerList = elem.getChildNodes();
                 String name = elem.getElementsByTagName("name").item(0).getTextContent();
                 String phone = elem.getElementsByTagName("phone").item(0).getTextContent();
                 String email = elem.getElementsByTagName("email").item(0).getTextContent();
                 String amount = elem.getElementsByTagName("amount").item(0).getTextContent();
                 String date = elem.getElementsByTagName("date").item(0).getTextContent();
                 al.add(new CustomerDetails(name, phone, email, amount, date));
+
+/*                ArrayList al2 = new ArrayList();
+                for (int j = 0; j < innerList.getLength(); j++) {
+                    System.out.println(innerList.item(j).getNodeName());
+                    al2.add(innerList.item(j).getTextContent().toString());
+                    for (Object x : al2) {
+                        System.out.println(x.toString());
+                    }
+                }
+
+             al.add(new CustomerDetails(name, phone,
+                         email), amount, date));
+                al.add(new CustomerDetails(al2.get(0).toString(), al2.get(1).toString(),
+                         al2.get(2).toString(), al2.get(3).toString(), al2.get(4).toString())); 
+                
+    This code is to dynaically pick up the rows in the XML 
+                */
             }
         }
         return al;
@@ -93,13 +107,11 @@ class XMLParsing implements readXML {
 
 }
 
-
-
 class CustomerDetails {
 
-     String name, emailid, phonenumber, date, amount;
+    String name, emailid, phonenumber, date, amount;
 
-    CustomerDetails(String name, String emailid, String pnonenumber, String amount, String date) {
+    CustomerDetails(String name, String emailid, String phonenumber, String amount, String date) {
         this.name = name;
         this.emailid = emailid;
         this.phonenumber = phonenumber;

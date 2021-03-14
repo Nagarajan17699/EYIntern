@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Day15;
+package Day17;
 
 /**
  *
  * @author Nagarajan
  */
-public class FilePath {
+public class EnumDemo {
     
-    public static String path = "d:/NetBeans Project/InternExercise/src/Day15/";
 }

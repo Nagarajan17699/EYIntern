@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Day15;
+package Week3Projects;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -25,7 +25,8 @@ public class ArrayListObjectToExcel {
     
     public void ObjecttoExcel(ArrayList<CustomerDetails> al)
     {
-        
+        CreateExcel ce = new CreateExcel();
+        ce.createExcel(al);
     }
 }
 
@@ -81,8 +82,10 @@ class CreateExcel implements XMLtoExcel
         
         try {
             FileOutputStream fs = new FileOutputStream(FilePath.path+"customer.xlsx");
-        } catch (FileNotFoundException ex) {
+            workbook.write(fs);
             
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
         
     }

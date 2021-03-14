@@ -1,0 +1,18 @@
+<!DOCTYPE customers SYSTEM "customer.dtd">
+<customers>
+    <customer>
+        <name>Nagarajan S</name>
+        <email>lasdnvion@sdfv.sdp</email>
+        <phone>24534534654</phone>
+        <amount>2334</amount>
+        <date>23/3/21</date>
+    </customer>
+    
+    <customer>
+        <name>abc</name>
+        <email>sfsgfsfsion@sdfv.sdp</email>
+        <phone>7836378634654</phone>
+        <amount>3634</amount>
+        <date>24/3/21</date>
+    </customer>
+</customers>
