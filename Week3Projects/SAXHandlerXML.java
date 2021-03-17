@@ -18,7 +18,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class SAXHandlerXML extends DefaultHandler {
 
-   boolean name = true;
+   boolean name = false;
    boolean email = false;
    boolean phone = false;
    boolean amount = false;
@@ -33,7 +33,7 @@ public class SAXHandlerXML extends DefaultHandler {
         // System.out.println("Roll No : " + rollNo);
         
       } else if (qName.equalsIgnoreCase("name")) {
-         name = false;
+         name = true;
       } else if (qName.equalsIgnoreCase("email")) {
          email = true;
       } else if (qName.equalsIgnoreCase("phone")) {
