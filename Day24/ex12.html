@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            
+                 alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    console.log(alpha.substring(0,4)) // returns "ABCD". 
+     console.log(alpha.substring(10,12)) // returns "KL". 
+    console.log( alpha.substring(12,10)) // also returns "KL". 
+    console.log( alpha.substring(6,7))  //returns "G". 
+    console.log( alpha.substring(24,26)) //returns "YZ". 
+    console.log( alpha.substring(0,26)) //returns the entire alphabet. 
+    console.log( alpha.substring(6,6)) //returns the null value, an empty string.
+
+var d = new Date();
+window.alert(d);
+		var str="India won the world cup for the 100th time..........................";
+                var x=0;
+
+function scroll(){			
+				var s=str.substring(0,x);
+				status=s;
+				x++;
+				if(x==str.length){
+					x=0;	
+					}
+                                console.log(s)
+			window.setTimeout("scroll();",100);
+		}
+		scroll();
+
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+    </body>
+</html>

@@ -97,6 +97,8 @@ public class RMIClient {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String invno = br.readLine();
+            RMIServer obj = RMIServer.getObject();
+            obj.createPDF(invno);
         } catch (IOException ex) {
             Logger.getLogger(RMIClient.class.getName()).log(Level.SEVERE, null, ex);
         }

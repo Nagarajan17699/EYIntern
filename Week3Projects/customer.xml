@@ -1,6 +1,13 @@
 <!DOCTYPE customers SYSTEM "customer.dtd">
 <customers>
     <customer>
+        <name>Name</name>
+        <email>E-Mail</email>
+        <phone>Phone</phone>
+        <amount>Amount</amount>
+        <date>Date</date>
+    </customer>
+    <customer>
         <name>Nagarajan S</name>
         <email>lasdnvion@sdfv.sdp</email>
         <phone>24534534654</phone>

@@ -55,15 +55,7 @@ public class ArrayListObjectToPDF {
             PdfPTable table = new PdfPTable(columnWidths);
             table.setWidthPercentage(100f);
             Font bfBold12 = new Font(FontFamily.TIMES_ROMAN, 12, Font.BOLD, new BaseColor(0, 0, 0));
-            insertCell(table, "Name", Element.ALIGN_LEFT, 1, bfBold12);
-            insertCell(table, "Phone", Element.ALIGN_LEFT, 1, bfBold12);
-            insertCell(table, "Email", Element.ALIGN_LEFT, 1, bfBold12);
-            insertCell(table, "Amount", Element.ALIGN_LEFT, 1, bfBold12);
-            insertCell(table, "Date", Element.ALIGN_LEFT, 1, bfBold12);
-            table.setHeaderRows(1);
-
-            insertCell(table, "", Element.ALIGN_LEFT, 5, bfBold12);
-
+            
             for (int i = 0; i < al.size(); i++) {
                 insertCell(table, al.get(i).name, Element.ALIGN_LEFT, 1, bfBold12);
                 insertCell(table, al.get(i).emailid, Element.ALIGN_LEFT, 1, bfBold12);

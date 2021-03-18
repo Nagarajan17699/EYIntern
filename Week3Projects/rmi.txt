@@ -1,0 +1,13 @@
+You are asked to write a RmiServer and a client to do the following.
+
+1. On connection to the RMI Server, display the following menu.
+Press one of the number
+1 - To create invoice
+2 - To calculate the Date and Time of Delivery of Invoice - Accept Invoice Number as input.
+3 - To generate PDF of Invoice - Accept Invoice Number as input
+4 - To generate Excel of Invoice - Accept Invoice Number as input
+5 - To enter new items
+
+Note: 
+
+when you create invoice, accept only the stored itemnumbers and qt
