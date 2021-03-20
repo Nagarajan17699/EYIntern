@@ -16,6 +16,8 @@ import java.util.HashSet;
 public interface Business extends Remote{
      int createInvoice(InvoiceDetails id) throws RemoteException;
      public int insertBuyingItems(HashSet<BuyingItems> bi) throws RemoteException;
-     public void createPDF(String invno);
+     public void createPDF(String invno) throws RemoteException;
+     public void createExcel(String invno) throws RemoteException;
+
        
 }

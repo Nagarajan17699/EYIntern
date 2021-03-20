@@ -94,11 +94,29 @@ public class RMIServer extends UnicastRemoteObject implements Business {
     @Override
     public void createPDF(String invno) {
         
-        BufferedWriter brw = new BufferedWriter(new OutputStreamWriter(System.out));
-        System.out.println("Creating PDF ...");
-        dbUtils db = new dbUtils();
-        Connection con = db.getConnection();
-        String sql = "select * from ";
+        try {
+            BufferedWriter brw = new BufferedWriter(new OutputStreamWriter(System.out));
+            System.out.println("Creating PDF ...");
+            XMLGenerator xgen = new XMLGenerator();
+            ArrayListToPDF pdf = new ArrayListToPDF();
+            xgen.generateXML(invno,pdf);
+        } catch (Exception ex) {
+            Logger.getLogger(RMIServer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void createExcel(String invno) throws RemoteException {
+
+        try {
+            BufferedWriter brw = new BufferedWriter(new OutputStreamWriter(System.out));
+            System.out.println("Creating Excel ...");
+            XMLGenerator xgen = new XMLGenerator();
+            ArrayListToExcel ex = new ArrayListToExcel();
+            xgen.generateXML(invno,ex);
+        } catch (Exception ex) {
+            Logger.getLogger(RMIServer.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

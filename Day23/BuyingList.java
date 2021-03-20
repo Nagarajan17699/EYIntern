@@ -11,6 +11,15 @@ package Day23;
  */
 public class BuyingList {
     private String invno, itemno, quantity, price;
+    
+    BuyingList(){}
+    public BuyingList(String a, String b, String c, String d)
+    {
+        this.invno = a;
+        this.itemno = b;
+        this.quantity = c;
+        this.price = d;
+    }
 
     public String getInvno() {
         return invno;
