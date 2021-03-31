@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script>
+
+            function setCity(url)
+            {
+                var ajaxobj = new XMLHttpRequest();
+                ajaxobj.open("GET", url);
+                ajaxobj.send();
+                ajaxobj.onreadystatechange = function () {
+
+                    if (ajaxobj.readyState == 4 && ajaxobj.status == 200) {
+                        var resp = ajaxobj.responseXML;
+                        var val = document.getElementById("countryList").value;
+                        var root = resp.documentElement;
+                        console.log(root.childNodes.length)
+                        for (i = 0; i < root.childNodes.length; i++)
+                        {
+                            if (root.childNodes.item(i).getAttribute("name") == val) {
+                                var countrylist = root.childNodes.item(i);
+                                push(countrylist);
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            function push(countrylist)
+            {
+                var target = document.getElementById("target");
+                for (j = 0; j < countrylist.childNodes.length; j++) {
+                    target.options[j] = new Option(countrylist.childNodes[j].
+                            firstChild.nodeValue);
+                }
+            }
+        </script>
+    </head>
+    <body>
+         <form>
+            <select size="1" id="countryList" onchange="setCity('http://localhost:8080/internEY/cities.xml')">
+                <option value="india">India</option>
+                <option value="iraq">Iraq</option>
+            </select>
+            <select size="1" id="target">
+                <option value="india">cities</option>
+
+            </select>
+        </form>
+        <div>TODO write content</div>
+    </body>
+</html>

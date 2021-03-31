@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function Corporation()
+            {
+            this.doGiveCertificate = function(){return 'take death certificate...';} 
+            }
+            function Hospital()
+            {
+            this.doPostMortem = function(){return 'doing postmortem.....';} 
+            }
+            function Police()
+            {
+            this.doInvestigation = function(){return 'police doing investigation';} 
+            }
+
+            function command()
+            {
+            this.execute = function(){
+            return 'I am dummy I am yet to be initialized....'
+
+            }
+            }
+            function DeathCertificateCommand(hospital, police, corporation)
+            {
+            var str = "The workflow for death certificate started...";
+            //process-process workflow can be dynamic through json 
+            this.execute = function(){
+            str = str + ".." + hospital.doPostMortem();
+            str = str + ".." + police.doInvestigation();
+            str = str + ".." + corporation.doGiveCertificate();
+            console.log(str);
+            }
+            }
+            DeathCertificateCommand.prototype = new command();
+            var commands = [];
+            var sevaModule = (function sevacenter(){
+            function init()
+            {
+            for (var i = 0; i < 5; i++)
+            {
+            commands[i] = new command();
+            }
+            commands[1] = new DeathCertificateCommand(new
+                    Hospital(), new Police(), new Corporation());
+            }
+            return{
+            getSeva : function()
+            {
+            init();
+            }
+            }
+            })();
+            sevaModule.getSeva();
+            console.log(commands[1].execute());
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

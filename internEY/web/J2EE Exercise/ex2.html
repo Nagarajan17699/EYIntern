@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function Paint(){
+            this.getColor = function()
+            {
+            return 'The colour now is....' + this.color;
+            }
+            }
+            function RedPaint(color){
+            this.color = color;
+            }
+            function BluePaint(color){
+            this.color = color;
+            }
+            RedPaint.prototype = new Paint();
+                BluePaint.prototype = new Paint();
+                function PaintBrush(){
+                var p;
+                this.doPainting = function()
+                {
+                return this.p.getColor();
+                }
+                this.setPaint = function(paint)
+                {
+                this.p = paint;
+                }
+                }
+                 var jason = {    
+                        brush:'PaintBrush2',
+                        paint:'BluePaint'
+                }
+                var springjs = (function()
+                {
+                var pb;
+                init = function()
+                {
+                   
+                pb = new window[jason.brush]();
+                var paint = new window[jason.paint]('red');
+                pb.setPaint(paint); //dependency injection....
+                }
+                return{
+                getBean:function(){
+                init();
+                return pb;
+                }
+                }
+                })();
+            var pb = springjs.getBean('brush');
+            console.log(pb.doPainting());
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+    </body>
+</html>

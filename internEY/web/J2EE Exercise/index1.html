@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>City</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+                   function chkfrm()
+       {
+           var x = document.Card.name.value;
+                    if(x.length==0)
+          {
+               alert("Please Enter Name\n");  
+               return false;
+           }
+           else
+              return true;
+         }
+         </script>
+       
+    </head>
+    <body>
+       
+        <a href="ex2.html">Inheritance</a>
+        <a href="ex2.html">ex2</a>
+        <a href="ex3.html">ex3</a>
+        <a href="ex4.html">ex3</a>
+        <a href="ex5.html">ex5</a>
+        
+         <form action="sessions" method="post">
+             <button value="submit"> Session </button>
+        </form>
+        
+        <form action="ex1" method="post">
+        <label for="name">Enter the name </label>
+        <input type="text" value="name" name="name">
+        <button value="submit"> Submit </button>
+        </form>
+        <h1> EX 3------------------------------------------- </h1><br>
+        <form name="Card" action="ex1" onsubmit="return chkfrm();">
+           <center>
+             <b> Enter your name: </b>
+              <input type="text" name="name"> <P>
+              <input type="submit" value="submit">
+            </center>
+       </form>
+    </body>
+    
+   
+</html>

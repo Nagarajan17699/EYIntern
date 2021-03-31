@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <body>
+        <script>
+            function Fan(){
+            this.setState = function(state){
+            this.state = state;
+            }
+            this.pull = function(){
+            this.state.execute(this);
+            }
+            }
+
+            function SwitchOffState(){
+            this.execute = function(fan){
+            fan.setState(new SwitchOnState());
+            console.log("switch on state.....");
+            }
+            }
+                    function SwitchOnState(){
+                        this.execute = function(fan){
+                        fan.setState(new LowSpeedState());
+                        console.log("Low Speed state.....");
+                        }
+                    }
+            function LowSpeedState(){
+            this.execute = function(fan){
+            fan.setState(new HighSpeedState());
+            console.log("High Speed state.....");
+            }
+            }
+            function HighSpeedState(){
+            this.execute = function(fan){
+            fan.setState(new SwitchOffState());
+            console.log("switch off state.....");
+            }
+            }
+            var khaitan = new Fan();
+            khaitan.setState(new SwitchOffState());
+            //for(var i=0;i<10;i++){
+            //confirm("click yes to pull chain...");
+            setInterval("khaitan.pull();", 0);
+            // }
+        </script>
+    </body>
+</html>

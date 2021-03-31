@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>
+            Sample
+        </title>
+        <script>
+            function callurl(url) {
+                var ajaxobj = new XMLHttpRequest();
+                ajaxobj.open("GET", url);
+                ajaxobj.send();
+                ajaxobj.onreadystatechange = function () {
+                    console.log('hello');
+                    if (ajaxobj.readyState == 4 && ajaxobj.status == 200)
+                    {
+
+                        var resp = ajaxobj.responseXML;
+                        document.getElementById("output").innerHTML = resp.documentElement.nodeName;
+                        window.alert(resp.documentElement.nodeName)
+                        var rootelement = resp.documentElement;
+                        for (var i = 0; i < rootelement.childNodes.length; i++)
+                        {
+                            for (var j = 0; j < rootelement.childNodes.item(i).childNodes.length; j++)
+                            {
+                                console.log(rootelement.childNodes.item(i).childNodes.item(j).firstChild.nodeValue);
+                            }
+                        }
+                        
+                    var newelement=resp.createElement("NEWELEMENT");
+                    var value=resp.createTextNode("IAM THE VALUE...");
+                    //var att=response.createAttribute("ID");
+                    //var attvalue=response.createTextNode("BBBBBB");
+
+                    //att.appendChild(attvalue);
+                    //newelement.attributes.setNamedItem(att);
+                    newelement.appendChild(value);
+                    rootelement.appendChild(newelement);
+
+                    //var clone=newelement.cloneNode(true);
+                    //rootelement.firstChild.appendChild(clone);
+                    //rootelement.firstChild.insertBefore(newelement,rootelement.firstChild.lastChild);
+
+                    console.log((new XMLSerializer()).serializeToString(resp));
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button onClick="callurl('http://localhost:8080/internEY/books.xml')">Click Here</button>
+        <div id="output">Here</div>
+    </body>
+</html>
